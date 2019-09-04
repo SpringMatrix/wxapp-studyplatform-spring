@@ -13,10 +13,10 @@ public interface UserService {
     List<User> selectAllUser();
 
     //    按照ID查询指定用户
-    User selectByIdUser(String id);
+    User selectByIdUser(User user);
 
     //    删除指定用户
-    boolean deleteByIdUser(String id);
+    boolean deleteByIdUser(User user);
 
     //    更改用户信息
     boolean updateUser(User user);

@@ -30,15 +30,21 @@ public class UserTest {
         return userService.selectAllUser();
     }
 
+    @PostMapping("/selectByIdUser")
+    public User selectByIdUser(@RequestBody User user){
+        System.out.println("开始查找指定用户！");
+        return userService.selectByIdUser(user);
+    }
+
     @PostMapping("/updateUser")
     public boolean updateUser(@RequestBody User user){
         System.out.println("开始更新指定用户信息");
         return userService.updateUser(user);
     }
 
-    @PostMapping("deleteUser")
-    public boolean deleteUser(@RequestBody String id){
+    @PostMapping("/deleteUser")
+    public boolean deleteUser(@RequestBody User user){
         System.out.println("开始删除指定用户");
-        return userService.deleteByIdUser(id);
+        return userService.deleteByIdUser(user);
     }
 }

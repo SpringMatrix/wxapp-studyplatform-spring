@@ -38,16 +38,17 @@ public class UserServiceImpl implements UserService {
 
 //    按照ID查找用户
     @Override
-    public User selectByIdUser(String id) {
-        return userdao.selectByIdUser(id);
+    public User selectByIdUser(User user) {
+        return userdao.selectByIdUser(user);
     }
 
 //    删除指定ID用户
     @Override
-    public boolean deleteByIdUser(String id) {
+    public boolean deleteByIdUser(User user) {
         boolean flag=false;
         try {
-            userdao.deleteByIdUser(id);
+            userdao.deleteByIdUser(user);
+            System.out.println("删除用户成功！");
             flag=true;
         }catch (Exception e){
             e.printStackTrace();
