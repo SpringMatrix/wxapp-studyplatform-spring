@@ -51,6 +51,7 @@ public class UserServiceImpl implements UserService {
             System.out.println("删除用户成功！");
             flag=true;
         }catch (Exception e){
+            System.out.println("删除失败!");
             e.printStackTrace();
         }
         return flag;
