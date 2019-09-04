@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/user")
 public class UserTest {
@@ -16,10 +18,27 @@ public class UserTest {
     private UserService userService;
 
 
-    @PostMapping("/adduser")
+    @PostMapping("/addUser")
     public boolean addUser(@RequestBody User user){
         System.out.println("开始添加用户！");
         return userService.addUser(user);
     }
 
+    @PostMapping("/selectAllUser")
+    public List<User> selectAllUser(){
+        System.out.println("开始查找全部用户！");
+        return userService.selectAllUser();
+    }
+
+    @PostMapping("/updateUser")
+    public boolean updateUser(@RequestBody User user){
+        System.out.println("开始更新指定用户信息");
+        return userService.updateUser(user);
+    }
+
+    @PostMapping("deleteUser")
+    public boolean deleteUser(@RequestBody String id){
+        System.out.println("开始删除指定用户");
+        return userService.deleteByIdUser(id);
+    }
 }

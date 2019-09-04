@@ -6,12 +6,15 @@ import com.ysu.wxappstudyplatformspring.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDao userdao;
 
+//    添加用户
     @Override
     public boolean addUser(User user) {
         boolean flag=false;
@@ -20,6 +23,47 @@ public class UserServiceImpl implements UserService {
             flag=true;
         }catch (Exception e){
             System.out.println("添加用户失败！");
+
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
+//    查找全部用户
+    @Override
+    public List<User> selectAllUser() {
+        return userdao.selectAllUser();
+    }
+
+
+//    按照ID查找用户
+    @Override
+    public User selectByIdUser(String id) {
+        return userdao.selectByIdUser(id);
+    }
+
+//    删除指定ID用户
+    @Override
+    public boolean deleteByIdUser(String id) {
+        boolean flag=false;
+        try {
+            userdao.deleteByIdUser(id);
+            flag=true;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
+//    更新用户信息
+
+    @Override
+    public boolean updateUser(User user) {
+        boolean flag=false;
+        try{
+            userdao.updateUser(user);
+            flag=true;
+        }catch (Exception e){
             e.printStackTrace();
         }
         return flag;
