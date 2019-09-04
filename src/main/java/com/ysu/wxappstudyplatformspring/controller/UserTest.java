@@ -2,6 +2,7 @@ package com.ysu.wxappstudyplatformspring.controller;
 
 import com.ysu.wxappstudyplatformspring.Service.UserService;
 import com.ysu.wxappstudyplatformspring.pojo.User;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +19,7 @@ public class UserTest {
     private UserService userService;
 
 
+    @ApiOperation(value="创建用户", notes="根据User对象创建用户")
     @PostMapping("/addUser")
     public boolean addUser(@RequestBody User user){
         System.out.println("开始添加用户！");
