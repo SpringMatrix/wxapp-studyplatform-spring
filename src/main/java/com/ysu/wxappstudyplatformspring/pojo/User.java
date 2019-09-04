@@ -7,10 +7,15 @@ public class User {
     private String unionid;
     private String name;
     private String sex;
-    private String privacy;
+    private boolean privacy;
     private String tag;
     private String follow_num;
     private Date punch_time;
+
+    public User(){
+        punch_time = new Date(System.currentTimeMillis());
+        privacy=false;
+    }
 
     public Date getPunch_time() {
         return punch_time;
@@ -45,11 +50,11 @@ public class User {
         this.sex = sex;
     }
 
-    public String getPrivacy() {
+    public boolean getPrivacy() {
         return privacy;
     }
 
-    public void setPrivacy(String privacy) {
+    public void setPrivacy(boolean privacy) {
         this.privacy = privacy;
     }
 
