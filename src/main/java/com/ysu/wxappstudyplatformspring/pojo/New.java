@@ -47,7 +47,7 @@ public class New {
         this.date = date;
     }
 
-    public boolean isVisible() {
+    public boolean getVisible() {
         return visible;
     }
 
