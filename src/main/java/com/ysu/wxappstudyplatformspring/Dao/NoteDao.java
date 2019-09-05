@@ -14,7 +14,7 @@ public interface NoteDao {
 
 //    删除指定id笔记
     @Delete("delete from note where id=#{id}")
-    boolean deleteByIdNote(String id);
+    boolean deleteByIdNote(int id);
 
 //    更新指定id笔记
     @Update("update note set content=#{content} where id=#{id}")
@@ -32,7 +32,7 @@ public interface NoteDao {
 
 //    查看指定id笔记
     @Select("select * from note where id=#{id}")
-    Note selectByIdNote(String id);
+    Note selectByIdNote(int id);
 
 //    查看指定用户的所有笔记
     @Select("select * from note where unionid=#{unionid}")

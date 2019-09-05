@@ -28,7 +28,7 @@ public class NoteController {
     @ApiOperation(value = "删除笔记",notes = "删除指定id笔记")
     @ApiImplicitParam(name = "id",value = "准备删除笔记的id",required = true,dataType = "String")
     @DeleteMapping("/delete")
-    boolean deleteByIdNote(String id){
+    boolean deleteByIdNote(int id){
         return noteService.deleteByIdNote(id);
     }
 
@@ -62,7 +62,7 @@ public class NoteController {
     @ApiOperation(value="查看指定id笔记", notes="根据笔记id来查看指定id笔记")
     @ApiImplicitParam(name = "id", value = "笔记id", required = true, dataType = "String")
     @GetMapping("/selectbyid")
-    Note selectByIdNote(String id){
+    Note selectByIdNote(int id){
         return noteService.selectByIdNote(id);
     }
 

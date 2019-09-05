@@ -10,7 +10,7 @@ public interface NoteService {
     boolean addNote(Note note);
 
     //    删除指定id笔记
-    boolean deleteByIdNote(String id);
+    boolean deleteByIdNote(int id);
 
     //    更新指定id笔记
     boolean updateNote(Note note);
@@ -24,7 +24,7 @@ public interface NoteService {
 
 
     //    查看指定id笔记
-    Note selectByIdNote(String id);
+    Note selectByIdNote(int id);
 
     //    查看指定用户的所有笔记
     List<Note> selectByUnionidNote(String unionid);
