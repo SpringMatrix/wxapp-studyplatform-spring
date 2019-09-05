@@ -15,31 +15,31 @@ public class UserController {
     private UserService userService;
 
 
-    @RequestMapping(value = "/user", method = RequestMethod.POST)
+    @PostMapping("/user")
     public boolean addUser(@RequestBody User user){
         System.out.println("开始添加用户！");
         return userService.addUser(user);
     }
 
-    @RequestMapping(value = "/user", method = RequestMethod.DELETE)
+    @DeleteMapping("/user")
     public boolean deleteUser(@RequestParam String unionid){
         System.out.println("开始删除指定用户");
         return userService.deleteByIdUser(unionid);
     }
 
-    @RequestMapping(value = "/user", method = RequestMethod.PUT)
+    @PutMapping("/user")
     public boolean updateUser(@RequestBody User user){
         System.out.println("开始更新指定用户信息");
         return userService.updateUser(user);
     }
 
-    @RequestMapping(value = "/users", method = RequestMethod.GET)
+    @GetMapping("/users")
     public List<User> selectAllUser(){
         System.out.println("开始查找全部用户！");
         return userService.selectAllUser();
     }
 
-    @RequestMapping(value = "/user", method = RequestMethod.GET)
+    @GetMapping("/user")
     public User selectByIdUser(@RequestParam String unionid){
         System.out.println("开始查找指定用户！");
         return userService.selectByIdUser(unionid);
