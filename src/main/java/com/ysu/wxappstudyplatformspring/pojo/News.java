@@ -2,24 +2,24 @@ package com.ysu.wxappstudyplatformspring.pojo;
 
 import java.sql.Date;
 
-public class New {
+public class News {
 
-    private String id;
+    private int id;
     private String unionid;
     private String content;
     private Date date;
     private boolean visible;
 
-    public New(){
+    public News(){
         date = new Date(System.currentTimeMillis());
         visible=true;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

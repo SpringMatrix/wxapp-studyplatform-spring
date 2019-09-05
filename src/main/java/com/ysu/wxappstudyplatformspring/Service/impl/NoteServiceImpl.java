@@ -26,7 +26,7 @@ public class NoteServiceImpl implements NoteService{
     }
 
     @Override
-    public boolean deleteByIdNote(String id) {
+    public boolean deleteByIdNote(int id) {
         boolean flag=false;
         try {
             noteDao.deleteByIdNote(id);
@@ -60,7 +60,7 @@ public class NoteServiceImpl implements NoteService{
     }
 
     @Override
-    public Note selectByIdNote(String id) {
+    public Note selectByIdNote(int id) {
         return noteDao.selectByIdNote(id);
     }
 

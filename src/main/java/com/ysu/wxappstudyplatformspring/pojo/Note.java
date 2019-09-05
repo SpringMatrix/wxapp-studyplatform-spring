@@ -2,16 +2,16 @@ package com.ysu.wxappstudyplatformspring.pojo;
 
 public class Note {
 
-    private String id;
+    private int id;
     private String unionid;
     private String course_id;
     private String content;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
