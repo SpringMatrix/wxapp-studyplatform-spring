@@ -11,13 +11,13 @@ import java.util.List;
 @Service
 public class BookmarkServiceImpl implements BookmarkService {
     @Autowired
-    private BookmarkDao bookmarkdao;
+    private BookmarkDao bookmarkDao;
 
     @Override
     public boolean addBookmark(Bookmark bookmark){
         boolean flag = false;
         try{
-            bookmarkdao.addBookmark(bookmark);
+            bookmarkDao.addBookmark(bookmark);
             flag = true;
         }catch(Exception e){
             System.out.print("添加收藏关系失败");
@@ -30,7 +30,7 @@ public class BookmarkServiceImpl implements BookmarkService {
     public boolean deleteBookmark(Bookmark bookmark){
         boolean flag = false;
         try{
-            bookmarkdao.deleteBookmark(bookmark);
+            bookmarkDao.deleteBookmark(bookmark);
             flag = true;
         }catch(Exception e){
             System.out.println("删除关注关系失败");
@@ -41,21 +41,21 @@ public class BookmarkServiceImpl implements BookmarkService {
 
     @Override
     public List<Bookmark> selectAllBookmark(){
-        return bookmarkdao.selectAllBookmark();
+        return bookmarkDao.selectAllBookmark();
     }
 
     @Override
     public Bookmark selectBookmark(Bookmark bookmark){
-        return bookmarkdao.selectBookmark(bookmark);
+        return bookmarkDao.selectBookmark(bookmark);
     }
 
     @Override
     public List<Bookmark> selectByUserIdBookmark(String unionid){
-        return bookmarkdao.selectByUserIdBookmark(unionid);
+        return bookmarkDao.selectByUserIdBookmark(unionid);
     }
 
     @Override
     public List<Bookmark> selectByCourseIdBookmark(String course_id){
-        return bookmarkdao.selectByCourseIdBookmark(course_id);
+        return bookmarkDao.selectByCourseIdBookmark(course_id);
     }
 }

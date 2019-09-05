@@ -12,14 +12,14 @@ import java.util.List;
 public class AdminServiceImpl implements AdminService {
 
     @Autowired
-    private AdminDao admindao;
+    private AdminDao adminDao;
 
     // 添加管理员
     @Override
     public boolean addAdmin(Admin admin) {
         boolean flag = false;
         try {
-            admindao.addAdmin(admin);
+            adminDao.addAdmin(admin);
             flag = true;
         } catch (Exception e) {
             System.out.println("添加管理员失败！");
@@ -33,7 +33,7 @@ public class AdminServiceImpl implements AdminService {
     public boolean deleteByIdAdmin(String admin_id) {
         boolean flag = false;
         try {
-            admindao.deleteByIdAdmin(admin_id);
+            adminDao.deleteByIdAdmin(admin_id);
             System.out.println("删除管理员成功！");
             flag = true;
         } catch (Exception e) {
@@ -48,7 +48,7 @@ public class AdminServiceImpl implements AdminService {
     public boolean updateAdmin(Admin admin) {
         boolean flag = false;
         try {
-            admindao.updateAdmin(admin);
+            adminDao.updateAdmin(admin);
             System.out.println("更新管理员成功！");
             flag=true;
         } catch (Exception e) {
@@ -61,19 +61,19 @@ public class AdminServiceImpl implements AdminService {
     // 查找全部管理员
     @Override
     public List<Admin> selectAllAdmin() {
-        return admindao.selectAllAdmin();
+        return adminDao.selectAllAdmin();
     }
 
     // 按照ID查找管理员
     @Override
     public Admin selectByIdAdmin(String admin_id){
-        return admindao.selectByIdAdmin(admin_id);
+        return adminDao.selectByIdAdmin(admin_id);
     }
 
     // 按照账号查找管理员
     @Override
     public Admin selectByAccountAdmin(String account){
-        return admindao.selectByAccountAdmin(account);
+        return adminDao.selectByAccountAdmin(account);
     }
 
 }

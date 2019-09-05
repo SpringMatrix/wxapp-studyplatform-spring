@@ -12,14 +12,14 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private UserDao userdao;
+    private UserDao userDao;
 
     //    添加用户
     @Override
     public boolean addUser(User user) {
         boolean flag=false;
         try{
-            userdao.addUser(user);
+            userDao.addUser(user);
             flag=true;
         }catch (Exception e){
             System.out.println("添加用户失败！");
@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService {
     public boolean deleteByIdUser(String unionid) {
         boolean flag=false;
         try {
-            userdao.deleteByIdUser(unionid);
+            userDao.deleteByIdUser(unionid);
             System.out.println("删除用户成功！");
             flag=true;
         }catch (Exception e){
@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserService {
     public boolean updateUser(User user) {
         boolean flag=false;
         try{
-            userdao.updateUser(user);
+            userDao.updateUser(user);
             flag=true;
         }catch (Exception e){
             e.printStackTrace();
@@ -60,13 +60,13 @@ public class UserServiceImpl implements UserService {
     //    查找全部用户
     @Override
     public List<User> selectAllUser() {
-        return userdao.selectAllUser();
+        return userDao.selectAllUser();
     }
 
 
     //    按照ID查找用户
     @Override
     public User selectByIdUser(String unionid) {
-        return userdao.selectByIdUser(unionid);
+        return userDao.selectByIdUser(unionid);
     }
 }
