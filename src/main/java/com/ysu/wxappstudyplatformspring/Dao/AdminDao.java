@@ -9,7 +9,7 @@ import java.util.List;
 public interface AdminDao {
     // 添加管理员
     @Insert("insert into admin(admin_id,name,account,password) values(#{admin_id},#{name},#{account},#{password})")
-    void addAdmin(Admin admin);
+    boolean addAdmin(Admin admin);
     // 删除管理员
     @Delete("delete from admin where admin_id=#{admin_id}")
     boolean deleteByIdAdmin(String admin_id);
