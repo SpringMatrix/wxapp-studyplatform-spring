@@ -60,7 +60,7 @@ public class CourServiceImpl implements CourseService {
     }
     //    按照课程id查询
     @Override
-    public Course selectByIdCourse_id(String course_id) {
+    public Course selectByIdCourse(String course_id) {
         return courseDao.selectByIdCourse_id(course_id);
     }
     //    按照课程名字查询
