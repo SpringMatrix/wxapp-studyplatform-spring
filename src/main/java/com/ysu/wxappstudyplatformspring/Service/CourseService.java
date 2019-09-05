@@ -24,7 +24,7 @@ public interface CourseService {
 
 
     //    按照课程id查询
-    Course selectByIdCourse_id(String course_id);
+    Course selectByIdCourse(String course_id);
 
 
     //    按照课程名字查询

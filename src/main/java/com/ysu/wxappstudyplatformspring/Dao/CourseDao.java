@@ -15,7 +15,7 @@ public interface CourseDao {
     @Delete("delete from course where course_id=#{course_id}")
     boolean deleteByIdCourse(String course_id);
 //    更新课程信息
-    @Update("update course set course_id=#{course_id},name=#{name},introduction=#{introduction},url=#{url},tag=#{tag},tag2=#{tag2},tag3=#{tag3},play_num=#{play_num},bookmark_num=#{bookmark_num},visible=#{visible}")
+    @Update("update course set name=#{name},introduction=#{introduction},url=#{url},tag1=#{tag1},tag2=#{tag2},tag3=#{tag3},play_num=#{play_num},bookmark_num=#{bookmark_num},visible=#{visible} where course_id=#{course_id}")
     boolean updateCourse(Course course);
 
 
