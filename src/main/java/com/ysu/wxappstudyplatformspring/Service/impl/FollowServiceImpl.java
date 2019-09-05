@@ -21,7 +21,7 @@ public class FollowServiceImpl implements FollowService{
             followdao.addFollow(follow);
             flag = true;
         }catch(Exception e){
-            System.out.print("添加关注关系");
+            System.out.print("添加关注关系失败");
             e.printStackTrace();
         }
         return flag;
@@ -35,7 +35,7 @@ public class FollowServiceImpl implements FollowService{
             followdao.deleteFollow(follow);
             flag = true;
         }catch(Exception e){
-            System.out.println("删除关注关系");
+            System.out.println("删除关注关系失败");
             e.printStackTrace();
         }
         return flag;
