@@ -9,7 +9,7 @@ import java.util.List;
 public interface NoteDao {
 
 //    添加笔记
-    @Insert("insert into note (unionid,course_id,content} values(#{unionid},#{course_id},#{content})")
+    @Insert("insert into note (unionid,course_id,content) values(#{unionid},#{course_id},#{content})")
     boolean addNote(Note note);
 
 //    删除指定id笔记

@@ -38,7 +38,7 @@ public class Swagger2 {
                 .title("Spring Boot中使用Swagger2构建RESTful APIs")
                 .description("测试")
                 .termsOfServiceUrl("http://www.baidu.com/")
-                .contact("贾廷刚")
+                .contact("贾廷刚 应瑞")
                 .version("1.0")
                 .build();
     }
