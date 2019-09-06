@@ -29,7 +29,7 @@ public class CourServiceImpl implements CourseService {
     }
     //    通过id删除课程
     @Override
-    public boolean deleteByIdCourse(String course_id) {
+    public boolean deleteByIdCourse(int course_id) {
         boolean flag=false;
         try{
             courseDao.deleteByIdCourse(course_id);
@@ -53,6 +53,39 @@ public class CourServiceImpl implements CourseService {
         }
         return flag;
     }
+
+    //    审核通过
+    @Override
+    public boolean checkNews_Ok(int id){
+        boolean flag=false;
+        try {
+            courseDao.checkNews_Ok(id);
+            flag=true;
+        }catch (Exception e){
+            System.out.println("管理员审核通过");
+            e.printStackTrace();
+        }
+        return flag;
+
+    }
+
+    //    审核不通过
+    @Override
+    public boolean checkNews_No(int id){
+        boolean flag=false;
+        try {
+            courseDao.checkNews_No(id);
+            flag=true;
+        }catch (Exception e){
+            System.out.println("管理员审核不通过");
+            e.printStackTrace();
+        }
+        return flag;
+
+    }
+
+
+
     //    查找全部课程
     @Override
     public List<Course> selectAllCourse() {
@@ -60,9 +93,15 @@ public class CourServiceImpl implements CourseService {
     }
     //    按照课程id查询
     @Override
-    public Course selectByIdCourse(String course_id) {
+    public Course selectByIdCourse(int course_id) {
         return courseDao.selectByIdCourse_id(course_id);
     }
+    //    按照上传人id查询
+    @Override
+    public Course selectByIdUnionid(String unionid){
+        return courseDao.selectByIdUnionid(unionid);
+    }
+
     //    按照课程名字查询
     @Override
     public List<Course> selectByNameCourse(String name) {

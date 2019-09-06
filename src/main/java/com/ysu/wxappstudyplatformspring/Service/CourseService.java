@@ -11,20 +11,28 @@ public interface CourseService {
 
 
     //    通过id删除课程
-    boolean deleteByIdCourse(String course_id);
+    boolean deleteByIdCourse(int course_id);
 
 
     //    更新课程信息
     boolean updateCourse(Course course);
 
 
+    //    审核通过
+    boolean checkNews_Ok(int id);
+
+    //    审核不通过
+    boolean checkNews_No(int id);
 
     //    查找全部课程
     List<Course> selectAllCourse();
 
 
     //    按照课程id查询
-    Course selectByIdCourse(String course_id);
+    Course selectByIdCourse(int course_id);
+
+    //    按照上传人id查询
+    Course selectByIdUnionid(String unionid);
 
 
     //    按照课程名字查询

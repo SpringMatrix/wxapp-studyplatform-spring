@@ -1,7 +1,7 @@
 package com.ysu.wxappstudyplatformspring.pojo;
 
 public class Course {
-    private String course_id;
+    private int course_id;
     private String unionid;
     private String name;
     private String introduction;
@@ -18,11 +18,11 @@ public class Course {
     }
 
 
-    public String getCourse_id() {
+    public int getCourse_id() {
         return course_id;
     }
 
-    public void setCourse_id(String course_id) {
+    public void setCourse_id(int course_id) {
         this.course_id = course_id;
     }
 
