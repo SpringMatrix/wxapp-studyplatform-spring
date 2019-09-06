@@ -15,10 +15,10 @@ public interface NewsService {
     boolean updateNews(News news);
 
     //    审核通过
-    boolean checkNote_Ok(String id);
+    boolean checkNews_Ok(int id);
 
     //    审核不通过
-    boolean checkNote_No(String id);
+    boolean checkNews_No(int id);
 
     //    查看全部动态
     List<News> selectAllNews();

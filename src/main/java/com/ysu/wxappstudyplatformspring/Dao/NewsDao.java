@@ -10,7 +10,7 @@ import java.util.List;
 public interface NewsDao {
 
     //    添加动态
-    @Insert("insert into news (unionid,content,visible}} values(#{unionid},#{content},0)")
+    @Insert("insert into news (unionid,content,date) values(#{unionid},#{content},#{date})")
     boolean addNew(News news);
 
     //    删除指定id动态
@@ -23,11 +23,11 @@ public interface NewsDao {
 
 //    审核通过
     @Update("update news set visible='1' where id=#{id}")
-    boolean checkNote_Ok(String id);
+    boolean checkNews_Ok(int id);
 
     //    审核不通过
     @Update("update news set visible='0' where id=#{id}")
-    boolean checkNote_No(String id);
+    boolean checkNews_No(int id);
 
     //    查看全部动态
     @Select("select * from news")

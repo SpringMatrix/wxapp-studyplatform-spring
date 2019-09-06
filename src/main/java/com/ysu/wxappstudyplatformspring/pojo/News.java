@@ -1,19 +1,16 @@
 package com.ysu.wxappstudyplatformspring.pojo;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class News {
 
     private int id;
     private String unionid;
     private String content;
-    private Date date;
+    private Timestamp date;
     private boolean visible;
 
-    public News(){
-        date = new Date(System.currentTimeMillis());
-        visible=true;
-    }
 
     public int getId() {
         return id;
@@ -39,11 +36,11 @@ public class News {
         this.content = content;
     }
 
-    public Date getDate() {
+    public Timestamp getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(Timestamp date) {
         this.date = date;
     }
 
