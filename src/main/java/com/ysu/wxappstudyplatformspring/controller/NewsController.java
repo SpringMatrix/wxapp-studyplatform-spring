@@ -1,0 +1,111 @@
+package com.ysu.wxappstudyplatformspring.controller;
+
+import com.ysu.wxappstudyplatformspring.Service.NewsService;
+import com.ysu.wxappstudyplatformspring.pojo.News;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.List;
+
+@RestController
+@RequestMapping(value = "/api/news")
+public class NewsController {
+
+    @Autowired
+    private NewsService newsService;
+
+    //    添加动态
+    @ApiOperation(value = "添加动态",notes = "根据News对象创建笔记")
+    @ApiImplicitParam(name = "news",value = "笔记详细实体news",required = true,dataType = "News")
+    @PostMapping("/add")
+    public boolean addNews(@RequestBody News news) {
+
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//定义格式
+        Timestamp now = new Timestamp(System.currentTimeMillis());
+        String str = df.format(now);
+        news.setDate(Timestamp.valueOf(str));
+        return newsService.addNew(news);
+    }
+
+
+
+
+    //    删除指定id动态
+    @ApiOperation(value = "删除动态",notes = "删除指定id动态")
+    @ApiImplicitParam(name = "id",value = "准备删除动态的id",required = true,dataType = "String")
+    @DeleteMapping("/delete")
+    public boolean deleteByIdNews(@RequestParam int id) {
+        return newsService.deleteByIdNews(id);
+    }
+
+
+
+    //    更新指定id动态
+    @ApiOperation(value="更新动态", notes="更新指定News对象的动态")
+    @ApiImplicitParam(name = "news", value = "动态详细实体news", required = true, dataType = "News")
+    @PutMapping("/update")
+    public boolean updateNews( @RequestBody News news) {
+        return newsService.updateNews(news);
+    }
+
+
+
+
+
+    //    审核通过
+    @ApiOperation(value="动态审核通过", notes="管理员审核通过指定id动态")
+    @ApiImplicitParam(name = "id", value = "动态id", required = true, dataType = "String")
+    @PutMapping("/check_ok")
+    public boolean checkNews_Ok(@RequestParam int id) {
+        return newsService.checkNews_Ok(id);
+    }
+
+
+
+    //    审核不通过
+    @ApiOperation(value="动态审核不通过", notes="管理员审核不通过指定id动态")
+    @ApiImplicitParam(name = "id", value = "动态id", required = true, dataType = "String")
+    @PutMapping("/check_no")
+    public boolean checkNews_No(@RequestParam int id) {
+        return newsService.checkNews_No(id);
+    }
+
+
+    //    查看全部动态
+    @ApiOperation(value="查看全部动态", notes="查看全部动态")
+    @GetMapping("/selectall")
+    public List<News> selectAllNews() {
+        return newsService.selectAllNews();
+    }
+
+
+
+
+
+    //    查看指定id动态
+    @ApiOperation(value="查看指定id动态", notes="根据动态id来查看指定id动态")
+    @ApiImplicitParam(name = "id", value = "动态id", required = true, dataType = "String")
+    @GetMapping("/selectbyid")
+    public News selectByIdNews(@RequestParam int id) {
+        return newsService.selectByIdNews(id);
+    }
+
+
+
+    //    查看指定用户的所有动态
+    @ApiOperation(value="查看指定用户的所有动态", notes="根据unionid来实现查看指定用户的所有动态")
+    @ApiImplicitParam(name = "", value = "用户unionid", required = true, dataType = "String")
+    @GetMapping("/selectbyunionid")
+    public List<News> selectByUnionidNews(@RequestParam String unionid) {
+        return newsService.selectByUnionidNews(unionid);
+    }
+
+
+
+
+}

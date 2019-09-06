@@ -5,6 +5,7 @@ import com.ysu.wxappstudyplatformspring.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
 import java.util.List;
 
 @RestController
@@ -33,6 +34,13 @@ public class UserController {
         return userService.updateUser(user);
     }
 
+    @PutMapping("/usertime")
+    public boolean updatetimeUser(@RequestBody User user){
+        user.setPunch_time(new Date(System.currentTimeMillis()));
+        return userService.updateUser(user);
+    }
+
+
     @GetMapping("/users")
     public List<User> selectAllUser(){
         System.out.println("开始查找全部用户！");
@@ -44,4 +52,6 @@ public class UserController {
         System.out.println("开始查找指定用户！");
         return userService.selectByIdUser(unionid);
     }
+
+
 }
