@@ -2,44 +2,55 @@ package com.ysu.wxappstudyplatformspring.controller;
 
 import com.ysu.wxappstudyplatformspring.Service.AdminService;
 import com.ysu.wxappstudyplatformspring.pojo.Admin;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/api")
+@RequestMapping(value = "/api/admins")
 public class AdminController {
 
     @Autowired
     private AdminService adminService;
 
-    @PostMapping("/admin")
+    @ApiOperation(value="添加管理员", notes="输入Admin对象，创建管理员，返回true")
+    @ApiImplicitParam(name = "admin", value = "管理员类详细实体admin", required = true, dataType = "Admin")
+    @PostMapping("/")
     public boolean addAdmin(@RequestBody Admin admin){
         System.out.println("开始添加管理员!");
         return adminService.addAdmin(admin);
     }
 
-    @DeleteMapping("/admin")
+    @ApiOperation(value="删除管理员", notes="输入管理员ID Admin Id，删除管理员，返回true")
+    @ApiImplicitParam(name = "admin_id", value = "管理员Id", required = true, paramType = "query", dataType = "String")
+    @DeleteMapping("/")
     public boolean deleteAdmin(@RequestParam String admin_id){
         System.out.println("开始删除指定管理员!");
         return adminService.deleteByIdAdmin(admin_id);
     }
 
-    @PutMapping("/admin")
+    @ApiOperation(value="更新管理员", notes="输入Admin对象，更新管理员，返回true")
+    @ApiImplicitParam(name = "admin", value = "管理员类详细实体admin", required = true, dataType = "Admin")
+    @PutMapping("/")
     public boolean updateAdmin(@RequestBody Admin admin){
         System.out.println("开始更新指定管理员信息！");
         return adminService.updateAdmin(admin);
     }
 
-    @GetMapping("/admins")
+    @ApiOperation(value="查找全部管理员", notes="返回所有Admin对象")
+    @GetMapping("/all")
     public List<Admin> selectAllAdmin(){
         System.out.println("开始查找所有管理员！");
         return adminService.selectAllAdmin();
     }
 
-    @GetMapping("/admin")
-    public Admin selectAllAdmin(@RequestParam String admin_id){
+    @ApiOperation(value="按照管理员ID查找管理员", notes="输入管理员ID admin_id，查询管理员，返回单个Admin对象")
+    @ApiImplicitParam(name = "admin_id", value = "管理员Id", required = true, paramType = "query", dataType = "String")
+    @GetMapping("/")
+    public Admin selectByIdAdmin(@RequestParam String admin_id){
         System.out.println("开始查找指定管理员！");
         return adminService.selectByIdAdmin(admin_id);
     }

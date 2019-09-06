@@ -68,7 +68,7 @@ public class NoteController {
 
     //    查看指定用户的所有笔记
     @ApiOperation(value = "查看指定用户的所有笔记", notes = "根据unionid来实现查看指定用户的所有笔记")
-    @ApiImplicitParam(name = "unionid", value = "用户unionid", required = true, paramType = "query", dataType = "S")
+    @ApiImplicitParam(name = "unionid", value = "用户unionid", required = true, paramType = "query", dataType = "String")
     @GetMapping("/selectbyunionid")
     List<Note> selectByUnionidNote(@RequestParam String unionid) {
         return noteService.selectByUnionidNote(unionid);
