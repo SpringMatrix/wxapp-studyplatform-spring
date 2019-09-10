@@ -24,7 +24,7 @@ public interface AdminDao {
 
     // 按照账号查询指定用户
     @Select("select * from admin where account =#{account}")
-    Admin selectByAccountAdmin(String admin_id);
+    Admin selectByAccountAdmin(String account);
 
     //管理员用户信息
     @Update("update admin set name=#{name},account=#{account},password=#{password} where admin_id=#{admin_id}")
