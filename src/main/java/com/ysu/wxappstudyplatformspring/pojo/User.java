@@ -9,12 +9,17 @@ public class User {
     private String sex;
     private boolean privacy;
     private String tag;
-    private String follow_num;
+    private int follow_num;
     private Date punch_time;
+    private int point;
 
-    public User(){
-        punch_time = new Date(System.currentTimeMillis());
-        privacy=false;
+    public User() {
+        name = "undefined";
+        sex = "保密";
+        privacy = false;
+        follow_num = 0;
+        point = 0;
+        //punch_time = new Date(System.currentTimeMillis());
     }
 
     public Date getPunch_time() {
@@ -66,11 +71,19 @@ public class User {
         this.tag = tag;
     }
 
-    public String getFollow_num() {
+    public int getFollow_num() {
         return follow_num;
     }
 
-    public void setFollow_num(String follow_num) {
+    public void setFollow_num(int follow_num) {
         this.follow_num = follow_num;
+    }
+
+    public int getPoint() {
+        return point;
+    }
+
+    public void setPoint(int point) {
+        this.point = point;
     }
 }

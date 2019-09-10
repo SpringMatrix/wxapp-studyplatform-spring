@@ -69,4 +69,10 @@ public class UserServiceImpl implements UserService {
     public User selectByIdUser(String unionid) {
         return userDao.selectByIdUser(unionid);
     }
+
+    //用户登录
+    @Override
+    public boolean userLogin(String code){
+        return true;
+    }
 }

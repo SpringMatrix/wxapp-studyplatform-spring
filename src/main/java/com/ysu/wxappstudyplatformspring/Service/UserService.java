@@ -21,4 +21,7 @@ public interface UserService {
     //    按照ID查询指定用户
     User selectByIdUser(String unionid);
 
+    boolean userLogin(String code);
+
+
 }
