@@ -13,11 +13,17 @@ public interface CourseDao {
     boolean addCourse(Course course);
 //    通过id删除课程
     @Delete("delete from course where course_id=#{course_id}")
-    boolean deleteByIdCourse(String course_id);
+    boolean deleteByIdCourse(int course_id);
 //    更新课程信息
     @Update("update course set name=#{name},introduction=#{introduction},url=#{url},tag1=#{tag1},tag2=#{tag2},tag3=#{tag3},play_num=#{play_num},bookmark_num=#{bookmark_num},visible=#{visible} where course_id=#{course_id}")
     boolean updateCourse(Course course);
+    //    审核通过
+    @Update("update course set visible='1' where course_id=#{course_id}")
+    boolean checkNews_Ok(int id);
 
+    //    审核不通过
+    @Update("update course set visible='0' where course_id=#{course_id}")
+    boolean checkNews_No(int id);
 
 
 //    查找全部课程
@@ -25,7 +31,10 @@ public interface CourseDao {
     List<Course> selectAllCourse();
 //    按照课程id查询
     @Select("select * from course where course_id=#{course_id}")
-    Course selectByIdCourse_id(String course_id);
+    Course selectByIdCourse_id(int course_id);
+    //    按照上传人id查询
+    @Select("select * from course where unionid=#{unionid}")
+    Course selectByIdUnionid(String unionid);
 //    按照课程名字查询
     @Select("select * from course where name=#{name}")
     List<Course> selectByNameCourse(String name);

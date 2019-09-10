@@ -53,7 +53,7 @@ public class UserController {
     }
 
     @ApiOperation(value = "查找全部用户", notes = "返回所有User对象")
-    @GetMapping("/")
+    @GetMapping("/all")
     public List<User> selectAllUser() {
         System.out.println("开始查找全部用户！");
         return userService.selectAllUser();

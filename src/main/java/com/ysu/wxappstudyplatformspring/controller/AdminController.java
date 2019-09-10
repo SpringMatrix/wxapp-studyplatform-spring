@@ -3,6 +3,7 @@ package com.ysu.wxappstudyplatformspring.controller;
 import com.ysu.wxappstudyplatformspring.Service.AdminService;
 import com.ysu.wxappstudyplatformspring.pojo.Admin;
 import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -49,11 +50,23 @@ public class AdminController {
 
     @ApiOperation(value="按照管理员ID查找管理员", notes="输入管理员ID admin_id，查询管理员，返回单个Admin对象")
     @ApiImplicitParam(name = "admin_id", value = "管理员Id", required = true, paramType = "query", dataType = "String")
-    @GetMapping("/")
+    @GetMapping("/id")
     public Admin selectByIdAdmin(@RequestParam String admin_id){
         System.out.println("开始查找指定管理员！");
         return adminService.selectByIdAdmin(admin_id);
     }
 
+    @ApiOperation(value="验证登陆", notes="输入管理员账号，查询管理员，返回单个Admin对象")
+    @ApiImplicitParam(name = "admin1", value = "管理员类详细实体admin", required = true, dataType = "Admin")
+    @PostMapping("/login")
+    public boolean loginAdmin(@RequestBody Admin admin1){
+        System.out.println("开始匹配指定管理员账号密码是否正确！");
+        Admin admin=adminService.selectByAccountAdmin(admin1.getAccount());
+        if (admin.getPassword().equals(admin1.getPassword())){
+            System.out.println("admin账号正确");
+            return true;
+        }
+        return false;
+    }
 
 }
