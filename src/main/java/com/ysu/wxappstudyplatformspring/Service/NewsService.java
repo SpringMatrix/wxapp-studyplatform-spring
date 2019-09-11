@@ -23,12 +23,18 @@ public interface NewsService {
     //    查看全部动态
     List<News> selectAllNews();
 
+    //    查看全部通过审核动态
+    List<News> selectAllNewsVisible();
+
 
     //    查看指定id动态
     News selectByIdNews(int id);
 
     //    查看指定用户的所有动态
     List<News> selectByUnionidNews(String unionid);
+
+    //    查看指定用户的所有通过审核动态
+    List<News> selectByUnionidNewsVisible(String unionid);
 
 
 

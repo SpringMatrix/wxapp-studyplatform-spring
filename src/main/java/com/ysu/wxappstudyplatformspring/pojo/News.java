@@ -8,7 +8,7 @@ public class News {
     private int id;
     private String unionid;
     private String content;
-    private Timestamp date;
+    private Timestamp time;
     private boolean visible;
 
 
@@ -36,12 +36,12 @@ public class News {
         this.content = content;
     }
 
-    public Timestamp getDate() {
-        return date;
+    public Timestamp getTime() {
+        return time;
     }
 
-    public void setDate(Timestamp date) {
-        this.date = date;
+    public void setTime(Timestamp time) {
+        this.time = time;
     }
 
     public boolean getVisible() {

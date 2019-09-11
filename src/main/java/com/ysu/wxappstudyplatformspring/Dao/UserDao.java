@@ -10,7 +10,7 @@ import java.util.List;
 public interface UserDao {
 
     //    添加用户
-    @Insert("insert into user(unionid,name,sex,privacy,tag,follow_num,punch_time) values(#{unionid},#{name},#{sex},#{privacy},#{tag},#{follow_num},#{punch_time})")
+    @Insert("insert into user(unionid,name,sex,privacy,tag,follow_num,punch_time,avatar) values(#{unionid},#{name},#{sex},#{privacy},#{tag},#{follow_num},#{punch_time}),#{avatar}")
     boolean addUser(User user);
 
     //    删除指定用户
@@ -18,7 +18,7 @@ public interface UserDao {
     boolean deleteByIdUser(String unionid);
 
     //    更改用户信息
-    @Update("update user set name=#{name},sex=#{sex},privacy=#{privacy},tag=#{tag},follow_num=#{follow_num},punch_time=#{punch_time},point=#{point} where unionid=#{unionid}")
+    @Update("update user set name=#{name},sex=#{sex},privacy=#{privacy},tag=#{tag},follow_num=#{follow_num},punch_time=#{punch_time},point=#{point},avatar=#{avatar} where unionid=#{unionid}")
     boolean updateUser(User user);
 
     //    查找全部用户

@@ -12,6 +12,7 @@ public class User {
     private int follow_num;
     private Date punch_time;
     private int point;
+    private String avatar;
 
     public User() {
         name = "undefined";
@@ -85,5 +86,13 @@ public class User {
 
     public void setPoint(int point) {
         this.point = point;
+    }
+
+    public String getAvatar(){
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 }

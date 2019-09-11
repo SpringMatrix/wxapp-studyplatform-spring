@@ -97,6 +97,12 @@ public class NewsServiceImpl implements NewsService{
         return newsDao.selectAllNews();
     }
 
+    //    查看全部通过审核动态
+    @Override
+    public List<News> selectAllNewsVisible() {
+        return newsDao.selectAllNewsVisible();
+    }
+
 
 
 
@@ -113,5 +119,11 @@ public class NewsServiceImpl implements NewsService{
     @Override
     public List<News> selectByUnionidNews(String unionid) {
         return newsDao.selectByUnionidNews(unionid);
+    }
+
+    //    查看指定用户的所有通过审核动态
+    @Override
+    public List<News> selectByUnionidNewsVisible(String unionid) {
+        return newsDao.selectByUnionidNewsVisible(unionid);
     }
 }

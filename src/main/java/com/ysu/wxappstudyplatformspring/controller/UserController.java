@@ -70,7 +70,7 @@ public class UserController {
     @ApiOperation(value = "用户登录", notes = "输入微信code，调用微信接口auth.code2Session，返回openid")
     @ApiImplicitParam(name = "code", value = "微信code", required = true, paramType = "query", dataType = "String")
     @PostMapping("/login")
-    public User userLogin(@RequestParam String code, @RequestParam String name) throws IOException {
+    public User userLogin(@RequestParam String code, @RequestParam String name, @RequestParam String avatar) throws IOException {
         System.out.println("用户开始登录!");
         ObjectMapper objectMapper = new ObjectMapper();
         RestTemplate restTemplate = new RestTemplate();// 发送request请求
@@ -87,12 +87,15 @@ public class UserController {
         User user = userService.selectByIdUser(openid); //数据库寻找id
         //检测是否已在数据库
         if (user != null) {
+            user.setAvatar(avatar);
+            userService.updateUser(user);
             System.out.println("已注册！");
             return user;
         } else {
             user = new User();
             user.setUnionid(openid);
             user.setName(name);
+            user.setAvatar(avatar);
             System.out.println("未注册！");
             if (userService.addUser(user)) {
                 return user;
@@ -140,6 +143,7 @@ public class UserController {
     boolean userReprivacy(@RequestParam String unionid) {
         User user = userService.selectByIdUser(unionid);
         user.setPrivacy(!user.getPrivacy());
+        System.out.println("用户切换隐私政策");
         return userService.updateUser(user);
     }
 }

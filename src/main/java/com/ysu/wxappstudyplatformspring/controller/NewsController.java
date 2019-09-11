@@ -20,15 +20,15 @@ public class NewsController {
     private NewsService newsService;
 
     //    添加动态
-    @ApiOperation(value = "添加动态",notes = "根据News对象创建笔记")
-    @ApiImplicitParam(name = "news",value = "笔记详细实体news",required = true,dataType = "News")
+    @ApiOperation(value = "添加动态",notes = "根据News对象创建动态")
+    @ApiImplicitParam(name = "news",value = "动态详细实体news",required = true,dataType = "News")
     @PostMapping("/")
     public boolean addNews(@RequestBody News news) {
 
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//定义格式
         Timestamp now = new Timestamp(System.currentTimeMillis());
         String str = df.format(now);
-        news.setDate(Timestamp.valueOf(str));
+        news.setTime(Timestamp.valueOf(str));
         return newsService.addNew(news);
     }
 
