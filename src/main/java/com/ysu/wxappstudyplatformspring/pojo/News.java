@@ -7,6 +7,8 @@ public class News {
 
     private int id;
     private String unionid;
+    private String name;
+    private String avatar;
     private String content;
     private Timestamp time;
     private boolean visible;
@@ -27,6 +29,14 @@ public class News {
     public void setUnionid(String unionid) {
         this.unionid = unionid;
     }
+
+    public String getName(){return name;}
+
+    public void  setName(String name){this.name=name;}
+
+    private String getAvatar(){return avatar;}
+
+    private  void setAvatar(String avatar){this.avatar = avatar;}
 
     public String getContent() {
         return content;

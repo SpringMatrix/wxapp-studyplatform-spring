@@ -10,7 +10,7 @@ import java.util.List;
 public interface NewsDao {
 
     //    添加动态
-    @Insert("insert into news (unionid,content,time) values(#{unionid},#{content},#{time})")
+    @Insert("insert into news (unionid,name,avatar,content,time) values(#{unionid},#{name},#{avatar},#{content},#{time})")
     boolean addNew(News news);
 
     //    删除指定id动态
@@ -30,7 +30,7 @@ public interface NewsDao {
     boolean checkNews_No(int id);
 
     //    查看全部动态
-    @Select("select * from news")
+    @Select("select * from news order by 'id' DESC")
     List<News> selectAllNews();
 
 

@@ -8,8 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
-public class NewsServiceImpl implements NewsService{
+public class NewsServiceImpl implements NewsService {
 
     @Autowired
     private NewsDao newsDao;
@@ -17,74 +18,67 @@ public class NewsServiceImpl implements NewsService{
     //    添加动态
     @Override
     public boolean addNew(News news) {
-        boolean flag=false;
+        boolean flag = false;
         try {
             newsDao.addNew(news);
-            flag=true;
-        }catch (Exception e){
+            flag = true;
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return flag;
     }
-
-
 
 
     //    删除指定id动态
     @Override
     public boolean deleteByIdNews(int id) {
-        boolean flag=false;
+        boolean flag = false;
         try {
             newsDao.deleteByIdNews(id);
-            flag=true;
-        }catch (Exception e){
+            flag = true;
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return flag;
     }
-
 
 
     //    更新指定id动态
     @Override
     public boolean updateNews(News news) {
-        boolean flag=false;
+        boolean flag = false;
         try {
             newsDao.updateNews(news);
-            flag=true;
-        }catch (Exception e){
+            flag = true;
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return flag;
     }
-
-
-
 
 
     //    审核通过
     @Override
     public boolean checkNews_Ok(int id) {
-        boolean flag=false;
+        boolean flag = false;
         try {
             newsDao.checkNews_Ok(id);
-            flag=true;
-        }catch (Exception e){
+            flag = true;
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return flag;
     }
 
 
-
     //    审核不通过
     @Override
     public boolean checkNews_No(int id) {
-        boolean flag=false;
+        boolean flag = false;
         try {
             newsDao.checkNews_No(id);
-            flag=true;
-        }catch (Exception e){
+            flag = true;
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return flag;
@@ -104,15 +98,11 @@ public class NewsServiceImpl implements NewsService{
     }
 
 
-
-
-
     //    查看指定id动态
     @Override
     public News selectByIdNews(int id) {
         return newsDao.selectByIdNews(id);
     }
-
 
 
     //    查看指定用户的所有动态
