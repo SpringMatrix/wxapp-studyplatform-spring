@@ -17,8 +17,8 @@ public interface NewsDao {
     @Delete("delete from news where id=#{id}")
     boolean deleteByIdNews(int id);
 
-    //    更新指定id动态
-    @Update("update news set content=#{content}  where id=#{id}")
+    //    更新指定用户id所有动态的动态名
+    @Update("update news set name=#{name} where unionid=#{unionid}")
     boolean updateNews(News news);
 
     //    审核通过

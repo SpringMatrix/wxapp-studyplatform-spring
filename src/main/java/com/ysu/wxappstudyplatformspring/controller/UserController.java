@@ -1,7 +1,9 @@
 package com.ysu.wxappstudyplatformspring.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ysu.wxappstudyplatformspring.Service.NewsService;
 import com.ysu.wxappstudyplatformspring.Service.UserService;
+import com.ysu.wxappstudyplatformspring.pojo.News;
 import com.ysu.wxappstudyplatformspring.pojo.User;
 import com.ysu.wxappstudyplatformspring.pojo.WxResponse;
 import io.swagger.annotations.ApiImplicitParam;
@@ -20,6 +22,8 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private NewsService newsService;
 
     private String wxspAppid = "wxb95bf13fd4bc1c24";
     //小程序的 app secret (在微信小程序管理后台获取)
@@ -127,6 +131,10 @@ public class UserController {
     boolean userRename(@RequestParam String unionid, @RequestParam String newName) {
         User user = userService.selectByIdUser(unionid);
         user.setName(newName);
+        News news = new News();
+        news.setUnionid(unionid);
+        news.setName(newName);
+        newsService.updateNews(news);
         return userService.updateUser(user);
     }
 

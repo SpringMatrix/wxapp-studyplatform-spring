@@ -30,13 +30,21 @@ public class News {
         this.unionid = unionid;
     }
 
-    public String getName(){return name;}
+    public String getName() {
+        return name;
+    }
 
-    public void  setName(String name){this.name=name;}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    private String getAvatar(){return avatar;}
+    public String getAvatar() {
+        return avatar;
+    }
 
-    private  void setAvatar(String avatar){this.avatar = avatar;}
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
 
     public String getContent() {
         return content;
