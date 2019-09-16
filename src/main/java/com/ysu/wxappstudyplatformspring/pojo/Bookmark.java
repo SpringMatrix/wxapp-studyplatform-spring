@@ -1,9 +1,15 @@
 package com.ysu.wxappstudyplatformspring.pojo;
 
+import java.awt.print.Book;
+
 public class Bookmark {
     private String id;
     private String unionid;
     private String course_id;
+
+    public Bookmark() {
+        id = "0";
+    }
 
     public String getId() {
         return id;

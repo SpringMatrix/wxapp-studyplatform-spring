@@ -39,9 +39,11 @@ public class BookmarkController {
     }
 
     @ApiOperation(value="按照用户ID和课程ID查询收藏关系", notes="输入去除Id的Bookmark子对象，查询收藏关系，返回单个Bookmark对象")
-    @ApiImplicitParam(name = "bookmark", value = "收藏关系类详细实体bookmark", required = true, dataType = "Bookmark")
     @GetMapping("/")
-    public Bookmark selectBookamrk(@RequestBody Bookmark bookmark){
+    public Bookmark selectBookamrk(@RequestParam String unionid, @RequestParam String course_id){
+        Bookmark bookmark = new Bookmark();
+        bookmark.setUnionid(unionid);
+        bookmark.setCourse_id(course_id);
         System.out.println("开始查询指定收藏信息!");
         return bookmarkservice.selectBookmark(bookmark);
     }

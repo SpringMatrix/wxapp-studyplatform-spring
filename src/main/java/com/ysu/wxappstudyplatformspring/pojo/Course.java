@@ -4,6 +4,7 @@ public class Course {
     private int course_id;
     private String unionid;
     private String name;
+    private String image_url;
     private String introduction;
     private String url;
     private String tag1;
@@ -13,8 +14,8 @@ public class Course {
     private String bookmark_num;
     private boolean visible;
 
-    public Course(){
-        visible=true;
+    public Course() {
+        visible = true;
     }
 
 
@@ -40,6 +41,14 @@ public class Course {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getImage_url() {
+        return image_url;
+    }
+
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
     }
 
     public String getIntroduction() {
