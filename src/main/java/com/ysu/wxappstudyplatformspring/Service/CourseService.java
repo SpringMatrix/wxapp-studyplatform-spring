@@ -34,6 +34,9 @@ public interface CourseService {
     //    按照上传人id查询
     Course selectByIdUnionid(String unionid);
 
+    //    按照用户收藏查询
+    List<Course> selectByUnionidBookmark(String unionid);
+
 
     //    按照课程名字查询
     List<Course> selectByNameCourse(String name);

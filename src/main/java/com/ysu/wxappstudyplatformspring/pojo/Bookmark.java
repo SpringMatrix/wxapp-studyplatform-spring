@@ -3,19 +3,19 @@ package com.ysu.wxappstudyplatformspring.pojo;
 import java.awt.print.Book;
 
 public class Bookmark {
-    private String id;
+    private int id;
     private String unionid;
-    private String course_id;
+    private int course_id;
 
     public Bookmark() {
-        id = "0";
+        id = 0;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -27,11 +27,11 @@ public class Bookmark {
         this.unionid = unionid;
     }
 
-    public String getCourse_id() {
+    public int getCourse_id() {
         return course_id;
     }
 
-    public void setCourse_id(String course_id) {
+    public void setCourse_id(int course_id) {
         this.course_id = course_id;
     }
 }

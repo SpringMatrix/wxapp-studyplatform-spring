@@ -96,6 +96,12 @@ public class CourseController {
         return courseService.selectByIdUnionid(unionid);
     }
 
+    //    按照用户id查询用户收藏课程
+    @GetMapping("/unionid/bookmark")
+    public List<Course> selectByUnionidBookmark(String unionid) {
+        return courseService.selectByUnionidBookmark(unionid);
+    }
+
 
     //    按照Tag1查找对应的课程
     @ApiOperation(value = "按照Tag1查找对应的课程", notes = "根据Tag1查找对应的Course对象")

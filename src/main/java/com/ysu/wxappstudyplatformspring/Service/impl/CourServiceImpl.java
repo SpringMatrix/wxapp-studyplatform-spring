@@ -102,6 +102,12 @@ public class CourServiceImpl implements CourseService {
         return courseDao.selectByIdUnionid(unionid);
     }
 
+    //    按照用户收藏查询
+    @Override
+    public List<Course> selectByUnionidBookmark(String unionid){
+        return courseDao.selectByUnionidBookmark(unionid);
+    }
+
     //    按照课程名字查询
     @Override
     public List<Course> selectByNameCourse(String name) {

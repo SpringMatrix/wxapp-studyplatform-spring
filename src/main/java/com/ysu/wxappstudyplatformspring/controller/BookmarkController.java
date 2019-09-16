@@ -1,7 +1,9 @@
 package com.ysu.wxappstudyplatformspring.controller;
 
 import com.ysu.wxappstudyplatformspring.Service.BookmarkService;
+import com.ysu.wxappstudyplatformspring.Service.CourseService;
 import com.ysu.wxappstudyplatformspring.pojo.Bookmark;
+import com.ysu.wxappstudyplatformspring.pojo.Course;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,19 +17,29 @@ public class BookmarkController {
     @Autowired
     private BookmarkService bookmarkservice;
 
+    @Autowired
+    private CourseService courseService;
+
     @ApiOperation(value="添加收藏关系", notes="输入Bookmark对象，创建收藏关系，返回true")
     @ApiImplicitParam(name = "bookmark", value = "收藏关系类详细实体bookmark", required = true, dataType = "Bookmark")
     @PostMapping("/")
     public boolean addBookmark(@RequestBody Bookmark bookmark){
         System.out.println("开始添加收藏信息!");
+        Course course = courseService.selectByIdCourse(bookmark.getCourse_id());
+        course.setBookmark_num(Integer.toString(Integer.parseInt(course.getBookmark_num()) + 1));
+        courseService.updateCourse(course);
         return bookmarkservice.addBookmark(bookmark);
     }
 
     @ApiOperation(value="删除收藏关系", notes="输入Bookmark对象，删除收藏关系，返回true")
     @ApiImplicitParam(name = "bookmark", value = "收藏关系类详细实体bookmark", required = true, dataType = "Bookmark")
+    @CrossOrigin(origins = "*")
     @DeleteMapping("/")
     public boolean deleteBookmark(@RequestBody Bookmark bookmark){
         System.out.println("开始删除收藏信息!");
+        Course course = courseService.selectByIdCourse(bookmark.getCourse_id());
+        course.setBookmark_num(Integer.toString(Integer.parseInt(course.getBookmark_num()) - 1));
+        courseService.updateCourse(course);
         return bookmarkservice.deleteBookmark(bookmark);
     }
 
@@ -40,7 +52,7 @@ public class BookmarkController {
 
     @ApiOperation(value="按照用户ID和课程ID查询收藏关系", notes="输入去除Id的Bookmark子对象，查询收藏关系，返回单个Bookmark对象")
     @GetMapping("/")
-    public Bookmark selectBookamrk(@RequestParam String unionid, @RequestParam String course_id){
+    public Bookmark selectBookamrk(@RequestParam String unionid, @RequestParam int course_id){
         Bookmark bookmark = new Bookmark();
         bookmark.setUnionid(unionid);
         bookmark.setCourse_id(course_id);
