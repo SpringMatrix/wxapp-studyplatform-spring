@@ -99,7 +99,7 @@ public class NewsController {
 
     //    查看指定用户的所有动态
     @ApiOperation(value="查看指定用户的所有动态", notes="根据unionid来实现查看指定用户的所有动态")
-    @ApiImplicitParam(name = "", value = "用户unionid", required = true,paramType = "query", dataType = "String")
+    @ApiImplicitParam(name = "unionid", value = "用户unionid", required = true,paramType = "query", dataType = "String")
     @GetMapping("/unionid")
     public List<News> selectByUnionidNews(@RequestParam String unionid) {
         return newsService.selectByUnionidNews(unionid);
