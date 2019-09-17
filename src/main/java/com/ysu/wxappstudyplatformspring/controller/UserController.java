@@ -71,6 +71,12 @@ public class UserController {
         return userService.selectByIdUser(unionid);
     }
 
+    @GetMapping("/unionid/follow")
+    public List<User> selectByIdUserFollow(@RequestParam String unionid) {
+        System.out.println("开始查找指定用户！");
+        return userService.selectByIdUserFollow(unionid);
+    }
+
     @ApiOperation(value = "用户登录", notes = "输入微信code，调用微信接口auth.code2Session，返回openid")
     @ApiImplicitParam(name = "code", value = "微信code", required = true, paramType = "query", dataType = "String")
     @PostMapping("/login")

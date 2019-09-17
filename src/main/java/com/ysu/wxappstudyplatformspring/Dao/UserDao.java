@@ -29,4 +29,8 @@ public interface UserDao {
     @Select("select * from user where unionid =#{unionid}")
     User selectByIdUser(String unionid);
 
+    //    按照指定ID用户的关注查询用户
+    @Select("select * from user inner join follow where user.unionid=follow.unionid2")
+    List<User> selectByIdUserFollow(String unionid);
+
 }

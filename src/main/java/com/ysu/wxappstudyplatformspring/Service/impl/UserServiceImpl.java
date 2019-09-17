@@ -70,6 +70,12 @@ public class UserServiceImpl implements UserService {
         return userDao.selectByIdUser(unionid);
     }
 
+    //    按照指定ID用户的关注查找用户
+    @Override
+    public List<User> selectByIdUserFollow(String unionid) {
+        return userDao.selectByIdUserFollow(unionid);
+    }
+
     //用户登录
     @Override
     public boolean userLogin(String code){

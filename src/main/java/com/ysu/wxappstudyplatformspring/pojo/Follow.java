@@ -1,15 +1,19 @@
 package com.ysu.wxappstudyplatformspring.pojo;
 
 public class Follow {
-    private String id;
+    private int id;
     private String unionid1;
     private String unionid2;
 
-    public String getId() {
+    public Follow() {
+        id = 0;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
