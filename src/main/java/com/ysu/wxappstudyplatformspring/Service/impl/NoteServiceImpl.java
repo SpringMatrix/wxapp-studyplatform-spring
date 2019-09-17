@@ -3,6 +3,7 @@ package com.ysu.wxappstudyplatformspring.Service.impl;
 import com.ysu.wxappstudyplatformspring.Dao.NoteDao;
 import com.ysu.wxappstudyplatformspring.Service.NoteService;
 import com.ysu.wxappstudyplatformspring.pojo.Note;
+import com.ysu.wxappstudyplatformspring.pojo.NoteShown;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -65,7 +66,7 @@ public class NoteServiceImpl implements NoteService{
     }
 
     @Override
-    public List<Note> selectByUnionidNote(String unionid) {
+    public List<NoteShown> selectByUnionidNote(String unionid) {
         return noteDao.selectByUnionidNote(unionid);
     }
 }

@@ -1,6 +1,7 @@
 package com.ysu.wxappstudyplatformspring.Service;
 
 import com.ysu.wxappstudyplatformspring.pojo.Note;
+import com.ysu.wxappstudyplatformspring.pojo.NoteShown;
 
 import java.util.List;
 
@@ -27,7 +28,7 @@ public interface NoteService {
     Note selectByIdNote(int id);
 
     //    查看指定用户的所有笔记
-    List<Note> selectByUnionidNote(String unionid);
+    List<NoteShown> selectByUnionidNote(String unionid);
 
 
 

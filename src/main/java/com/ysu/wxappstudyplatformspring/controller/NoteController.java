@@ -2,6 +2,7 @@ package com.ysu.wxappstudyplatformspring.controller;
 
 import com.ysu.wxappstudyplatformspring.Service.NoteService;
 import com.ysu.wxappstudyplatformspring.pojo.Note;
+import com.ysu.wxappstudyplatformspring.pojo.NoteShown;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,7 +71,7 @@ public class NoteController {
     @ApiOperation(value = "查看指定用户的所有笔记", notes = "输入用户ID unionid，查找笔记，返回多个Note对象")
     @ApiImplicitParam(name = "unionid", value = "用户unionid", required = true, paramType = "query", dataType = "String")
     @GetMapping("/unionid")
-    List<Note> selectByUnionidNote(@RequestParam String unionid) {
+    List<NoteShown> selectByUnionidNote(@RequestParam String unionid) {
         return noteService.selectByUnionidNote(unionid);
     }
 }

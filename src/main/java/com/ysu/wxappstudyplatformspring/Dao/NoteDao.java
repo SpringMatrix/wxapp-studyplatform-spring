@@ -1,6 +1,7 @@
 package com.ysu.wxappstudyplatformspring.Dao;
 
 import com.ysu.wxappstudyplatformspring.pojo.Note;
+import com.ysu.wxappstudyplatformspring.pojo.NoteShown;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -35,6 +36,6 @@ public interface NoteDao {
     Note selectByIdNote(int id);
 
 //    查看指定用户的所有笔记
-    @Select("select * from note where unionid=#{unionid}")
-    List<Note> selectByUnionidNote(String unionid);
+    @Select("SELECT a.*,course.name,course.image_url FROM ((SELECT * FROM note WHERE unionid=#{unionid})AS a) inner JOIN course ON a.course_id = course.course_id")
+    List<NoteShown> selectByUnionidNote(String unionid);
 }
