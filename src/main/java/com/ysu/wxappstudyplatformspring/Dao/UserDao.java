@@ -10,7 +10,7 @@ import java.util.List;
 public interface UserDao {
 
     //    添加用户
-    @Insert("insert into user(unionid,name,sex,privacy,tag,follow_num,punch_time,avatar) values(#{unionid},#{name},#{sex},#{privacy},#{tag},#{follow_num},#{punch_time}),#{avatar}")
+    @Insert("insert into user(unionid,name,sex,privacy,tag,follow_num,punch_time,avatar) values(#{unionid},#{name},#{sex},#{privacy},#{tag},#{follow_num},#{punch_time},#{avatar})")
     boolean addUser(User user);
 
     //    删除指定用户
