@@ -37,7 +37,7 @@ public interface CourseDao {
     Course selectByIdUnionid(String unionid);
 
     //    按照用户收藏查询
-    @Select("select * from course inner join bookmark where course.course_id=bookmark.course_id")
+    @Select("select * from course where course_id in (select * from (select course_id from bookmark WHERE unionid=#{unionid}) as bookmarkcourse)")
     List<Course> selectByUnionidBookmark(String unionid);
 //    按照课程名字查询
     @Select("select * from course where name=#{name}")

@@ -92,13 +92,14 @@ public class CourseController {
     @ApiOperation(value = "按照上传人Id查找对应上传的课程", notes = "根据unionid查找对应的Course对象")
     @ApiImplicitParam(name = "unionid", value = "上传人unionid号", required = true, paramType = "query", dataType = "String")
     @GetMapping("/unionid")
-    public Course selectByIdUnionid(String unionid) {
+    public Course selectByIdUnionid(@RequestParam(value = "unionid") String unionid) {
         return courseService.selectByIdUnionid(unionid);
     }
 
     //    按照用户id查询用户收藏课程
+    @ApiImplicitParam(name = "id", value = "课程id", required = true, paramType = "query", dataType = "String")
     @GetMapping("/unionid/bookmark")
-    public List<Course> selectByUnionidBookmark(String unionid) {
+    public List<Course> selectByUnionidBookmark(@RequestParam(value = "unionid") String unionid) {
         return courseService.selectByUnionidBookmark(unionid);
     }
 
