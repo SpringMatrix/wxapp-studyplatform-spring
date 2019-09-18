@@ -34,6 +34,7 @@ public class CourseController {
 
     @ApiOperation(value = "删除课程", notes = "根据Id删除Course对象")
     @ApiImplicitParam(name = "course_id", value = "课程id号course_id", required = true, paramType = "query", dataType = "int")
+    @CrossOrigin(origins = "*")
     @DeleteMapping("/")
     public boolean deleteByIdCourse(@RequestParam(value = "course_id") int course_id) {
         System.out.println("开始删除课程");
@@ -44,6 +45,7 @@ public class CourseController {
     //    更新课程
     @ApiOperation(value = "更新课程信息", notes = "根据Couerse对象自动获取其中Id并更新对应课程信息")
     @ApiImplicitParam(name = "course", value = "课程course", required = true, dataType = "Course")
+    @CrossOrigin(origins = "*")
     @PutMapping("/")
     public boolean updateCourse(@RequestBody Course course) {
         System.out.println("开始更新课程信息");

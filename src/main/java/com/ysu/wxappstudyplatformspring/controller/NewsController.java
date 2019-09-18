@@ -38,6 +38,7 @@ public class NewsController {
     //    删除指定id动态
     @ApiOperation(value = "删除动态",notes = "删除指定id动态")
     @ApiImplicitParam(name = "id",value = "准备删除动态的id",required = true,paramType = "query",dataType = "int")
+    @CrossOrigin(origins = "*")
     @DeleteMapping("/")
     public boolean deleteByIdNews(@RequestParam int id) {
         return newsService.deleteByIdNews(id);
@@ -48,6 +49,7 @@ public class NewsController {
     //    更新指定id动态
     @ApiOperation(value="更新动态", notes="更新指定News对象的动态")
     @ApiImplicitParam(name = "news", value = "动态详细实体news", required = true, dataType = "News")
+    @CrossOrigin(origins = "*")
     @PutMapping("/")
     public boolean updateNews( @RequestBody News news) {
         return newsService.updateNews(news);
