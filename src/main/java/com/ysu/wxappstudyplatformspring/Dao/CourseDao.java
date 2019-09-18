@@ -42,6 +42,9 @@ public interface CourseDao {
 //    按照课程名字查询
     @Select("select * from course where name=#{name}")
     List<Course> selectByNameCourse(String name);
+    //    按照Name模糊查询指定课程
+    @Select("select * from course where name like CONCAT('%',#{name},'%')")
+    List<Course> selectByNameLikeCourse(String name);
 //    按照标签1查询
     @Select("select * from course where tag1=#{tag1}")
     List<Course> selectByTag1Course(String tag1);

@@ -41,6 +41,9 @@ public interface CourseService {
     //    按照课程名字查询
     List<Course> selectByNameCourse(String name);
 
+    //    按照Name模糊查询指定用户
+    List<Course> selectByNameLikeCourse(String name);
+
 
     //    按照标签1查询
     List<Course> selectByTag1Course(String tag1);

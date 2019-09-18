@@ -113,6 +113,12 @@ public class CourServiceImpl implements CourseService {
     public List<Course> selectByNameCourse(String name) {
         return courseDao.selectByNameCourse(name);
     }
+    //    按照Name模糊查询指定用户
+    @Override
+    public List<Course> selectByNameLikeCourse(String name){
+        return courseDao.selectByNameLikeCourse(name);
+    }
+
     //    按照标签1查询
     @Override
     public List<Course> selectByTag1Course(String tag1) {
