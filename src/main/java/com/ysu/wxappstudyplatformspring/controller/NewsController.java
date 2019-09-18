@@ -53,6 +53,20 @@ public class NewsController {
         return newsService.updateNews(news);
     }
 
+    @PostMapping("/like")
+    public boolean likenumNews(@RequestParam int id) {
+        News news = newsService.selectByIdNews(id);
+        news.setLikenum(news.getLikenum()+1);
+        return newsService.updateByIdNewsLikenum(news);
+    }
+
+    @PostMapping("/unlike")
+    public boolean unlikenumNews(@RequestParam int id) {
+        News news = newsService.selectByIdNews(id);
+        news.setLikenum(news.getLikenum()-1);
+        return newsService.updateByIdNewsLikenum(news);
+    }
+
 
 
 

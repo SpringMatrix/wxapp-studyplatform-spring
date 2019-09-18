@@ -21,6 +21,10 @@ public interface NewsDao {
     @Update("update news set name=#{name} where unionid=#{unionid}")
     boolean updateNews(News news);
 
+    //    更新指定id动态的点赞数量
+    @Update("update news set likenum=#{likenum} where id=#{id}")
+    boolean updataByIdNewsLikenum(News news);
+
     //    审核通过
     @Update("update news set visible='1' where id=#{id}")
     boolean checkNews_Ok(int id);

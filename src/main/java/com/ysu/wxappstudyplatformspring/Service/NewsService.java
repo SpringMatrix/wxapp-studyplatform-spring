@@ -14,6 +14,9 @@ public interface NewsService {
     //    更新指定id动态
     boolean updateNews(News news);
 
+    //    更新指定id动态的点赞数
+    boolean updateByIdNewsLikenum(News news);
+
     //    审核通过
     boolean checkNews_Ok(int id);
 

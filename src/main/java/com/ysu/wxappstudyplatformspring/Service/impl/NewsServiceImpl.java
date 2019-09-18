@@ -56,6 +56,19 @@ public class NewsServiceImpl implements NewsService {
         return flag;
     }
 
+    //
+    @Override
+    public boolean updateByIdNewsLikenum(News news) {
+        boolean flag = false;
+        try {
+            newsDao.updataByIdNewsLikenum(news);
+            flag = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
 
     //    审核通过
     @Override
