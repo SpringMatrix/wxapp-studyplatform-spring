@@ -98,7 +98,7 @@ public class CourServiceImpl implements CourseService {
     }
     //    按照上传人id查询
     @Override
-    public Course selectByIdUnionid(String unionid){
+    public List<Course> selectByIdUnionid(String unionid){
         return courseDao.selectByIdUnionid(unionid);
     }
 
