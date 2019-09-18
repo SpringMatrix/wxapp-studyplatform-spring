@@ -1,0 +1,33 @@
+Manifest-Version: 1.0
+Class-Path: jackson-annotations-2.9.0.jar validation-api-2.0.1.Final.j
+ ar spring-tx-5.1.9.RELEASE.jar springfox-swagger-common-2.2.2.jar spr
+ ing-boot-starter-2.1.7.RELEASE.jar log4j-api-2.11.2.jar mapstruct-1.0
+ .0.CR1.jar snakeyaml-1.23.jar jul-to-slf4j-1.7.26.jar slf4j-log4j12-1
+ .7.26.jar aspectjrt-1.9.4.jar spring-beans-5.1.9.RELEASE.jar spring-e
+ xpression-5.1.9.RELEASE.jar tomcat-embed-core-9.0.22.jar log4j-to-slf
+ 4j-2.11.2.jar spring-jdbc-5.1.9.RELEASE.jar spring-context-5.1.9.RELE
+ ASE.jar spring-boot-autoconfigure-2.1.7.RELEASE.jar spring-boot-confi
+ guration-processor-2.1.7.RELEASE.jar jackson-core-2.9.9.jar logback-c
+ ore-1.2.3.jar classmate-1.4.0.jar guava-18.0.jar slf4j-api-1.7.26.jar
+  jackson-databind-2.9.9.jar spring-boot-starter-tomcat-2.1.7.RELEASE.
+ jar springfox-spi-2.2.2.jar tomcat-embed-el-9.0.22.jar tomcat-embed-w
+ ebsocket-9.0.22.jar spring-core-5.1.9.RELEASE.jar springfox-swagger2-
+ 2.2.2.jar log4j-1.2.17.jar spring-plugin-core-1.2.0.RELEASE.jar swagg
+ er-models-1.5.3.jar spring-boot-starter-json-2.1.7.RELEASE.jar jboss-
+ logging-3.3.2.Final.jar mybatis-spring-1.3.1.jar spring-web-5.1.9.REL
+ EASE.jar springfox-swagger-ui-2.2.2.jar spring-boot-devtools-2.1.7.RE
+ LEASE.jar spring-boot-starter-logging-2.1.7.RELEASE.jar mybatis-sprin
+ g-boot-autoconfigure-1.2.0.jar swagger-annotations-1.5.3.jar spring-w
+ ebmvc-5.1.9.RELEASE.jar HikariCP-3.2.0.jar spring-aop-5.1.9.RELEASE.j
+ ar spring-jcl-5.1.9.RELEASE.jar mybatis-spring-boot-starter-1.2.0.jar
+  aspectjweaver-1.9.4.jar jackson-datatype-jdk8-2.9.9.jar spring-hateo
+ as-0.25.2.RELEASE.jar hibernate-validator-6.0.17.Final.jar springfox-
+ core-2.2.2.jar spring-boot-2.1.7.RELEASE.jar mybatis-3.4.2.jar spring
+ -plugin-metadata-1.2.0.RELEASE.jar spring-boot-starter-web-2.1.7.RELE
+ ASE.jar jackson-datatype-jsr310-2.9.9.jar logback-classic-1.2.3.jar s
+ pringfox-schema-2.2.2.jar mysql-connector-java-8.0.11.jar spring-boot
+ -starter-jdbc-2.1.7.RELEASE.jar javax.annotation-api-1.3.2.jar spring
+ fox-spring-web-2.2.2.jar jackson-module-parameter-names-2.9.9.jar
+Main-Class: com.ysu.wxappstudyplatformspring.WxappStudyplatformSpringA
+ pplication
+
