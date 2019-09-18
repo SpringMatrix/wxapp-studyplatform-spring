@@ -21,6 +21,12 @@ public interface UserService {
     //    按照ID查询指定用户
     User selectByIdUser(String unionid);
 
+    //    按照Name查询指定用户
+    List<User> selectByNameUser(String name);
+
+    //    按照Name模糊查询指定用户
+    List<User> selectByNameLikeUser(String name);
+
     //    按照指定ID用户的关注查询用户
     List<User> selectByIdUserFollow(String unionid);
 

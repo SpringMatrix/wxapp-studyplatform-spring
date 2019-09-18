@@ -73,6 +73,32 @@ public class UserController {
         return userService.selectByIdUser(unionid);
     }
 
+
+    //    按照Name查询指定用户
+    @ApiOperation(value = "按照用户name查找用户", notes = "输入用户name ，查找用户，返回单个User对象")
+    @ApiImplicitParam(name = "name", value = "用户name", required = true, paramType = "query", dataType = "String")
+    @GetMapping("/name")
+    public List<User> selectByNameUser(String name){
+        System.out.println("开始按照Name查询指定用户！");
+        return userService.selectByNameUser(name);
+    }
+
+    //    按照Name模糊查询指定用户
+    @ApiOperation(value = "按照用户name模糊查询指定用户", notes = "输入用户name ，模糊查询指定用户，返回单个User对象")
+    @ApiImplicitParam(name = "name", value = "用户name", required = true, paramType = "query", dataType = "String")
+    @GetMapping("/namelike")
+    List<User> selectByNameLikeUser(String name){
+        System.out.println("开始按照Name模糊查询指定用户！");
+        return userService.selectByNameLikeUser(name);
+    }
+
+
+
+
+
+
+
+
     @GetMapping("/unionid/follow")
     public List<User> selectByIdUserFollow(@RequestParam String unionid) {
         System.out.println("开始查找指定用户！");

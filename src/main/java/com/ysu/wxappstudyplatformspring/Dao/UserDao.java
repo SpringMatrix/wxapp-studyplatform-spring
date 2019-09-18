@@ -29,6 +29,14 @@ public interface UserDao {
     @Select("select * from user where unionid =#{unionid}")
     User selectByIdUser(String unionid);
 
+    //    按照Name查询指定用户
+    @Select("select * from user where name =#{name}")
+    List<User> selectByNameUser(String name);
+
+    //    按照Name模糊查询指定用户
+    @Select("select * from user where name like CONCAT('%',#{name},'%')")
+    List<User> selectByNameLikeUser(String name);
+
     //    按照指定ID用户的关注查询用户
     @Select("select * from user where unionid in (select * from (select unionid2 from follow WHERE unionid1=#{unionid}) as followuser)")
     List<User> selectByIdUserFollow(String unionid);

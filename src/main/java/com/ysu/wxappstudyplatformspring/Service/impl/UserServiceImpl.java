@@ -70,6 +70,19 @@ public class UserServiceImpl implements UserService {
         return userDao.selectByIdUser(unionid);
     }
 
+
+    //    按照Name查询指定用户
+    @Override
+    public List<User> selectByNameUser(String name){
+        return userDao.selectByNameUser(name);
+    }
+
+    //    按照Name模糊查询指定用户
+    @Override
+    public List<User> selectByNameLikeUser(String name){
+        return userDao.selectByNameLikeUser(name);
+    }
+
     //    按照指定ID用户的关注查找用户
     @Override
     public List<User> selectByIdUserFollow(String unionid) {
