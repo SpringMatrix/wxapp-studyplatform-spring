@@ -32,7 +32,7 @@ public interface CourseService {
     Course selectByIdCourse(int course_id);
 
     //    按照上传人id查询
-    Course selectByIdUnionid(String unionid);
+    List<Course> selectByIdUnionid(String unionid);
 
     //    按照用户收藏查询
     List<Course> selectByUnionidBookmark(String unionid);
@@ -40,6 +40,9 @@ public interface CourseService {
 
     //    按照课程名字查询
     List<Course> selectByNameCourse(String name);
+
+    //    按照Name模糊查询指定用户
+    List<Course> selectByNameLikeCourse(String name);
 
 
     //    按照标签1查询

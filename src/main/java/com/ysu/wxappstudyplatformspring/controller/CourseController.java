@@ -88,11 +88,17 @@ public class CourseController {
         return courseService.selectByIdCourse(course_id);
     }
 
+    //    按照名称模糊查询课程
+    @GetMapping("/likename")
+    public List<Course> selectByNameLikeCourse(@RequestParam String name) {
+        return courseService.selectByNameLikeCourse(name);
+    }
+
     //    按照上传人id查询
     @ApiOperation(value = "按照上传人Id查找对应上传的课程", notes = "根据unionid查找对应的Course对象")
     @ApiImplicitParam(name = "unionid", value = "上传人unionid号", required = true, paramType = "query", dataType = "String")
     @GetMapping("/unionid")
-    public Course selectByIdUnionid(@RequestParam(value = "unionid") String unionid) {
+    public List<Course> selectByIdUnionid(@RequestParam(value = "unionid") String unionid) {
         return courseService.selectByIdUnionid(unionid);
     }
 

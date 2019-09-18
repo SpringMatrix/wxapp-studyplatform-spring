@@ -34,7 +34,7 @@ public interface CourseDao {
     Course selectByIdCourse_id(int course_id);
     //    按照上传人id查询
     @Select("select * from course where unionid=#{unionid}")
-    Course selectByIdUnionid(String unionid);
+    List<Course> selectByIdUnionid(String unionid);
 
     //    按照用户收藏查询
     @Select("select * from course where course_id in (select * from (select course_id from bookmark WHERE unionid=#{unionid}) as bookmarkcourse)")
@@ -42,6 +42,9 @@ public interface CourseDao {
 //    按照课程名字查询
     @Select("select * from course where name=#{name}")
     List<Course> selectByNameCourse(String name);
+    //    按照Name模糊查询指定课程
+    @Select("select * from course where name like CONCAT('%',#{name},'%')")
+    List<Course> selectByNameLikeCourse(String name);
 //    按照标签1查询
     @Select("select * from course where tag1=#{tag1}")
     List<Course> selectByTag1Course(String tag1);

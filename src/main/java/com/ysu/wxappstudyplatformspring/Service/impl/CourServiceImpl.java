@@ -98,7 +98,7 @@ public class CourServiceImpl implements CourseService {
     }
     //    按照上传人id查询
     @Override
-    public Course selectByIdUnionid(String unionid){
+    public List<Course> selectByIdUnionid(String unionid){
         return courseDao.selectByIdUnionid(unionid);
     }
 
@@ -113,6 +113,12 @@ public class CourServiceImpl implements CourseService {
     public List<Course> selectByNameCourse(String name) {
         return courseDao.selectByNameCourse(name);
     }
+    //    按照Name模糊查询指定用户
+    @Override
+    public List<Course> selectByNameLikeCourse(String name){
+        return courseDao.selectByNameLikeCourse(name);
+    }
+
     //    按照标签1查询
     @Override
     public List<Course> selectByTag1Course(String tag1) {
