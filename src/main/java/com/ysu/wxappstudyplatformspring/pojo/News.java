@@ -12,6 +12,7 @@ public class News {
     private String content;
     private Timestamp time;
     private boolean visible;
+    private int likenum;
 
 
     public int getId() {
@@ -68,5 +69,13 @@ public class News {
 
     public void setVisible(boolean visible) {
         this.visible = visible;
+    }
+
+    public int getLikenum() {
+        return likenum;
+    }
+
+    public void setLikenum(int likenum) {
+        this.likenum = likenum;
     }
 }

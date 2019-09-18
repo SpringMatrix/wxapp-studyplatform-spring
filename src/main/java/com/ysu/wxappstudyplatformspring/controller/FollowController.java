@@ -24,6 +24,9 @@ public class FollowController {
     @PostMapping("/")
     public boolean addFollow(@RequestBody Follow follow) {
         System.out.println("开始添加关注关系!");
+        if(follow.getUnionid1().equals(follow.getUnionid2())) {
+            return false;
+        }
         User user = userService.selectByIdUser(follow.getUnionid2());
         user.setFollow_num(user.getFollow_num() + 1);
         userService.updateUser(user);
