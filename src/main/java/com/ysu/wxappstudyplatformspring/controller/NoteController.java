@@ -28,6 +28,7 @@ public class NoteController {
     //    删除指定id笔记
     @ApiOperation(value = "删除笔记", notes = "输入笔记ID id，删除笔记，返回true")
     @ApiImplicitParam(name = "id", value = "准备删除笔记的id", required = true, paramType = "query", dataType = "String")
+    @CrossOrigin(origins = "*")
     @DeleteMapping("/")
     boolean deleteByIdNote(@RequestParam int id) {
         return noteService.deleteByIdNote(id);
@@ -36,6 +37,7 @@ public class NoteController {
     //    更新指定id笔记
     @ApiOperation(value = "更新笔记", notes = "输入Note对象，更新笔记，返回true")
     @ApiImplicitParam(name = "note", value = "笔记详细实体note", required = true, dataType = "Note")
+    @CrossOrigin(origins = "*")
     @PutMapping("/")
     boolean updateNote(@RequestBody Note note) {
         return noteService.updateNote(note);
