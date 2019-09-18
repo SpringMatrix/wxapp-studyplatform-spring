@@ -42,6 +42,10 @@ public class BookmarkController {
         courseService.updateCourse(course);
         return bookmarkservice.deleteBookmark(bookmark);
     }
+    public boolean deleteByIdBookmark(@RequestParam String id){
+        System.out.println("开始删除收藏信息!");
+        return bookmarkservice.deleteByIdBookmark(id);
+    }
 
     @ApiOperation(value="查找全部收藏关系", notes="返回所有Bookmark对象")
     @GetMapping("/all")

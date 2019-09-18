@@ -42,6 +42,7 @@ public class UserController {
 
     @ApiOperation(value = "删除用户", notes = "输入用户ID unionid，删除用户，返回true")
     @ApiImplicitParam(name = "unionid", value = "用户ID", required = true, paramType = "query", dataType = "String")
+    @CrossOrigin(origins = "*")
     @DeleteMapping("/")
     public boolean deleteUser(@RequestParam String unionid) {
         System.out.println("开始删除指定用户");
@@ -50,6 +51,7 @@ public class UserController {
 
     @ApiOperation(value = "更新用户", notes = "输入User对象，更新用户，返回true")
     @ApiImplicitParam(name = "user", value = "用户详细实体user", required = true, dataType = "User")
+    @CrossOrigin(origins = "*")
     @PutMapping("/")
     public boolean updateUser(@RequestBody User user) {
         System.out.println("开始更新指定用户信息");

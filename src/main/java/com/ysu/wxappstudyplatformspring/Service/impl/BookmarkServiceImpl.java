@@ -39,6 +39,19 @@ public class BookmarkServiceImpl implements BookmarkService {
         return flag;
     }
 
+    // 删除收藏关系
+    @Override
+    public boolean deleteByIdBookmark(String id){
+        boolean flag = false;
+        try{
+            bookmarkDao.deleteByIdBookmark(id);
+            flag = true;
+        }catch(Exception e){
+            System.out.println("删除关注关系失败");
+            e.printStackTrace();
+        }
+        return flag;
+    }
     @Override
     public List<Bookmark> selectAllBookmark(){
         return bookmarkDao.selectAllBookmark();
