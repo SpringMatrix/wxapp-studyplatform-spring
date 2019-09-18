@@ -11,6 +11,9 @@ public interface BookmarkService {
     // 删除关注关系
     boolean deleteBookmark(Bookmark bookmark);
 
+    // 删除收藏关系
+    boolean deleteByIdBookmark(String id);
+
     // 查询所有收藏关系
     List<Bookmark> selectAllBookmark();
 

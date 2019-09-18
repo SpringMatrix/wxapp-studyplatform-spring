@@ -18,6 +18,10 @@ public interface BookmarkDao {
     @Delete("delete from bookmark where unionid=#{unionid} and course_id=#{course_id}")
     boolean deleteBookmark(Bookmark bookmark);
 
+    // 删除收藏关系
+    @Delete("delete from bookmark where id=#{id}")
+    boolean deleteByIdBookmark(String id);
+
     // 查询所有收藏关系
     @Select("select * from bookmark")
     List<Bookmark> selectAllBookmark();
