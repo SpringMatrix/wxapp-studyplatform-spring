@@ -9,7 +9,7 @@ import java.util.List;
 public interface CourseDao {
 
 //    添加课程
-    @Insert("insert into course(course_id,unionid,name,introduction,url,tag1,tag2,tag3,play_num,bookmark_num,visible) values(#{course_id},#{unionid},#{name},#{introduction},#{url},#{tag1},#{tag2},#{tag3},#{play_num},#{bookmark_num},#{visible})")
+    @Insert("insert into course(unionid,name,image_url,introduction,url,tag1,tag2,tag3) values(#{unionid},#{name},#{image_url},#{introduction},#{url},#{tag1},#{tag2},#{tag3})")
     boolean addCourse(Course course);
 //    通过id删除课程
     @Delete("delete from course where course_id=#{course_id}")
