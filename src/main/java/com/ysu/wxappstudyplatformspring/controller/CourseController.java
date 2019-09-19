@@ -55,6 +55,7 @@ public class CourseController {
     //    审核通过
     @ApiOperation(value = "课程审核通过", notes = "管理员审核通过指定id课程")
     @ApiImplicitParam(name = "id", value = "课程id", required = true, paramType = "query", dataType = "int")
+    @CrossOrigin(origins = "*")
     @PutMapping("/check-ok")
     public boolean checkNews_Ok(@RequestParam int id) {
         return courseService.checkNews_Ok(id);
@@ -64,6 +65,7 @@ public class CourseController {
     //    审核不通过
     @ApiOperation(value = "课程审核不通过", notes = "管理员审核不通过指定id课程")
     @ApiImplicitParam(name = "id", value = "课程id", required = true, paramType = "query", dataType = "int")
+    @CrossOrigin(origins = "*")
     @PutMapping("/check-no")
     public boolean checkNews_No(@RequestParam int id) {
         return courseService.checkNews_No(id);
@@ -76,6 +78,14 @@ public class CourseController {
     @GetMapping("/all")
     public List<Course> selectAllCourse() {
         return courseService.selectAllCourse();
+    }
+
+    //    查找全部课程
+    @ApiOperation(value = "查找全部课程信息", notes = "返回所有Course对象")
+//    @ApiImplicitParam(name = "course", value = "课程course", required = false, dataType = "Course")
+    @GetMapping("/allvis")
+    public List<Course> selectAllCourseVisible() {
+        return courseService.selectAllCourseVisible();
     }
 
 

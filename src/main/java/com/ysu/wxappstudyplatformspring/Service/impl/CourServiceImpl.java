@@ -91,6 +91,9 @@ public class CourServiceImpl implements CourseService {
     public List<Course> selectAllCourse() {
         return courseDao.selectAllCourse();
     }
+
+    @Override
+    public List<Course> selectAllCourseVisible(){return courseDao.selectAllCourseVisible();}
     //    按照课程id查询
     @Override
     public Course selectByIdCourse(int course_id) {

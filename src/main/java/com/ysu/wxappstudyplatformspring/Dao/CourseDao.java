@@ -26,9 +26,12 @@ public interface CourseDao {
     boolean checkNews_No(int id);
 
 
-//    查找全部课程
+    //    查找全部课程
     @Select("select * from course")
     List<Course> selectAllCourse();
+    //    查找全部课程
+    @Select("select * from course where visible = 1")
+    List<Course> selectAllCourseVisible();
 //    按照课程id查询
     @Select("select * from course where course_id=#{course_id}")
     Course selectByIdCourse_id(int course_id);

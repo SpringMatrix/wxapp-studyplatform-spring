@@ -27,6 +27,8 @@ public interface CourseService {
     //    查找全部课程
     List<Course> selectAllCourse();
 
+    List<Course> selectAllCourseVisible();
+
 
     //    按照课程id查询
     Course selectByIdCourse(int course_id);

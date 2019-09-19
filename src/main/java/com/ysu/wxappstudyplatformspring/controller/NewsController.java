@@ -76,6 +76,7 @@ public class NewsController {
     //    审核通过
     @ApiOperation(value="动态审核通过", notes="管理员审核通过指定id动态")
     @ApiImplicitParam(name = "id", value = "动态id", required = true, paramType = "query",dataType = "int")
+    @CrossOrigin(origins = "*")
     @PutMapping("/check-ok")
     public boolean checkNews_Ok(@RequestParam int id) {
         return newsService.checkNews_Ok(id);
@@ -86,6 +87,7 @@ public class NewsController {
     //    审核不通过
     @ApiOperation(value="动态审核不通过", notes="管理员审核不通过指定id动态")
     @ApiImplicitParam(name = "id", value = "动态id", required = true, paramType = "query",dataType = "int")
+    @CrossOrigin(origins = "*")
     @PutMapping("/check-no")
     public boolean checkNews_No(@RequestParam int id) {
         return newsService.checkNews_No(id);
@@ -97,6 +99,13 @@ public class NewsController {
     @GetMapping("/all")
     public List<News> selectAllNews() {
         return newsService.selectAllNews();
+    }
+
+    //    查看全部动态
+    @ApiOperation(value="查看全部动态", notes="查看全部动态")
+    @GetMapping("/allvis")
+    public List<News> selectAllNewsVisible() {
+        return newsService.selectAllNewsVisible();
     }
 
 

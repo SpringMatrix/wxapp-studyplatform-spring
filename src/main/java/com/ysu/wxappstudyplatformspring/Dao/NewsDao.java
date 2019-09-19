@@ -37,9 +37,8 @@ public interface NewsDao {
     @Select("select * from news order by 'id' DESC")
     List<News> selectAllNews();
 
-
-    //    查看全部通过审核的动态
-    @Select("select * from news where visible=1")
+    //    查看全部动态
+    @Select("select * from news where visible = 1 order by 'id' DESC")
     List<News> selectAllNewsVisible();
 
     //    查看指定id动态

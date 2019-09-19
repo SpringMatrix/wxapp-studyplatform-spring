@@ -26,8 +26,8 @@ public interface NewsService {
     //    查看全部动态
     List<News> selectAllNews();
 
-    //    查看全部通过审核动态
     List<News> selectAllNewsVisible();
+
 
 
     //    查看指定id动态
